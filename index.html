@@ -81,6 +81,13 @@
             cursor:pointer;
 
         }
+        .btn1{
+            background-color: fuchsia;
+            border: none;
+            font-weight: bolder;
+            color:rgb(11, 2, 32);
+
+        }
        
         @media screen and (min-width:300px) and (max-width:660px){
             .first{
@@ -129,6 +136,24 @@
             position: relative;
             top:-95px;
         }
+        @media screen and (min-width:300px) and (max-width:355px){
+            .foot{
+            
+            height: 30px;
+            grid-template-columns:2fr;
+            display: flex;
+            flex-direction: row;
+            margin-top: 167px;
+         
+            
+        }
+        .hea{
+            top:-65px;
+            margin: 25px;
+            padding-top: -100px;
+        }
+
+        }
         }
 
     </style>
@@ -147,18 +172,19 @@
             </header>
             <div class="maindiv">
                 <div class="leftdiv" style="padding: 20px;">
-                    <h2>User Selected <span id="Rock">Rock</span></h2>
+                    <h2>User Selected <span id="Rock">nothing</span></h2>
                     
                     <p style="margin-top: 4px;">Score:<span id="sp1">0</span></p></div>
                 <div class="rightdiv" style="padding: 20px;">
-                    <h2>Computer Selected <span id="Paper">Paper</span></h2>
+                    <h2>Computer Selected <span id="Paper">nothing</span></h2>
                     
-                 <p style="margin-top: 4px;">Score:<span id="sp2">0</span></p>
+                 <p style="margin-top: 3px;">Score:<span id="sp2">0</span></p>
                  
                 </div>
             </div>
             <footer class="foot" style="display: flex;justify-content: center;align-items: center;background-color: fuchsia;">
-                <button style="background-color: fuchsia;border: none;font-weight: bolder;color:rgb(11, 2, 32)" id="btn">Result</button>
+                <button  class="btn1" id="btn">The Game is Not Started</button>
+            
             </footer>
         </div>
      
@@ -221,18 +247,7 @@
 
  
   
- if(userscore>computerscore)
- {
-    document.getElementById('btn').innerHTML=" user won the game";
- }
- else if(computerscore>userscore)
- {
-    document.getElementById('btn').innerHTML=" computer won the game";
- }
- else if(userscore===computerscore)
- {
-    document.getElementById('btn').innerHTML="  The game is drawn";
- }
+
     
  
    
