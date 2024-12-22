@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+              margin: 0%;
+              padding: 0%;
+        }
+        .main{
+            display:grid;
+            width: 90%;
+            
+            
+            
+        }
+        .head{
+            display:grid;
+            grid-template-columns: 2fr 2fr 2fr;
+            height: 300px;
+            
+           
+        }
+        .some{
+            background-color: #cd212a;
+            
+        }
+        .search{
+            background-color:#00a170;
+            
+        }
+        .thing{
+            background-color:#ffa500;
+          
+            
+        }
+        .maindiv{
+            display:grid;
+            grid-template-columns:2fr 2fr ;
+            height: 100px;
+           
+        }
+        .leftdiv{
+            background-color:#6c244c;
+            
+            
+        }
+        .rightdiv{
+            background-color: #00758f;
+            
+        }
+        .foot{
+            background-color:#f96714;
+            height: 50px;
+            grid-template-columns:2fr;
+            
+        }
+        .first{
+            
+            width: 100%;
+            margin: auto;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background:linear-gradient(135deg,#153677,#4e085f);
+
+        }
+        #rock::hover{
+            border: #6c244c;
+            cursor: pointer;
+        }
+        #paper::hover{
+            border: #6c244c;
+            cursor: pointer;
+
+        }
+        #scissor::hover{
+            border: #6c244c;
+            cursor:pointer;
+
+        }
+       
+        @media screen and (min-width:300px) and (max-width:660px){
+            .first{
+            
+            width: 100%;
+            margin: auto;
+            height: 135vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background:linear-gradient(135deg,#153677,#4e085f);
+            position: relative;
+        }
+            .head{
+            margin-top: -100px;
+            display:grid;
+            grid-template-columns: 2fr 2fr 2fr;
+            margin-top: -100px;
+            height: 20px;
+            display: flex;
+            flex-direction: column;
+            
+           
+        }
+        .maindiv{
+            display:grid;
+            grid-template-columns:2fr 2fr ;
+            height: 20px;
+            display: flex;
+            flex-direction: column;
+            margin-top: 500px;
+           
+           
+        }
+        .foot{
+            background-color:#f96714;
+            height: 30px;
+            grid-template-columns:2fr;
+            display: flex;
+            flex-direction: row;
+            margin-top: 155px;
+         
+            
+        }
+        .hea{
+            position: relative;
+            top:-95px;
+        }
+        }
+
+    </style>
+    <title>Document</title>
+</head>
+<body>
+ 
+    <div class="first" style="display: flex;flex-direction: column;">
+        <h1 style="color: red;font-weight: bold;" class="hea">Rock paper scissor game</h1>
+        <br>
+        <div class="main" >
+            <header class="head">
+                <div class="some" style="padding: 10px;display: flex;justify-content: center;align-items: center;"><img src="rock.jpeg" style="border-radius: 50%;" id="rock"></div>
+                <div class="thing" style="padding: 10px;display: flex;justify-content: center;align-items: center;"><img src="paper.jpeg" style="border-radius: 50%;" id="paper"></div>
+                <div class="search" style="padding:10px;display: flex;justify-content: center;align-items: center;"><img src="sc2.jpeg" style="border-radius: 50%;" id="scissor"></div>
+            </header>
+            <div class="maindiv">
+                <div class="leftdiv" style="padding: 20px;">
+                    <h2>User Selected <span id="Rock">Rock</span></h2>
+                    
+                    <p style="margin-top: 4px;">Score:<span id="sp1">0</span></p></div>
+                <div class="rightdiv" style="padding: 20px;">
+                    <h2>Computer Selected <span id="Paper">Paper</span></h2>
+                    
+                 <p style="margin-top: 4px;">Score:<span id="sp2">0</span></p>
+                 
+                </div>
+            </div>
+            <footer class="foot" style="display: flex;justify-content: center;align-items: center;background-color: fuchsia;">
+                <button style="background-color: fuchsia;border: none;font-weight: bolder;color:rgb(11, 2, 32)" id="btn">Result</button>
+            </footer>
+        </div>
+     
+    </div>
+   
+    
+</body>
+<script>
+   let a=document.querySelectorAll('.head img');
+   console.log(a);
+
+   let computerchoice;
+   let userchoice;
+
+
+   let userscore=0;
+   let computerscore=0;
+
+   function computer(){
+    let arr=['rock','paper','scissor'];
+    let var1=Math.floor(Math.random()*3);
+    computerchoice=arr[var1];
+    console.log(computerchoice);
+
+    return computerchoice;
+    
+
+   }
+
+    function game(){
+    computerchoice= computer();
+    alert(`user selected ${userchoice} and computer selected ${computerchoice}`);
+    if (userchoice===computerchoice)
+      {
+          document.getElementById('btn').innerHTML="Game Draw";
+          Paper.innerHTML=computerchoice;
+          Rock.innerHTML=userchoice;
+          
+      }
+      else if (userchoice==='rock' && computerchoice=='scissor' || userchoice==='paper' && computerchoice==='scissor' || userchoice==='rock' && computerchoice==="paper")
+      {
+          document.getElementById('btn').innerHTML="Hurrah! computer won ";
+          computerscore++;
+          console.log(computerscore);
+          Paper.innerHTML=computerchoice;
+          Rock.innerHTML=userchoice;
+          document.getElementById('sp2').innerHTML=computerscore;
+          
+      }
+      else{
+        document.getElementById('btn').innerHTML="Hurrah! user won";
+        userscore++;
+        console.log(userscore);
+        Paper.innerHTML=computerchoice;
+        Rock.innerHTML=userchoice;
+        document.getElementById('sp1').innerHTML=userscore;
+      }
+
+   }
+
+ 
+  
+ if(userscore>computerscore)
+ {
+    document.getElementById('btn').innerHTML=" user won the game";
+ }
+ else if(computerscore>userscore)
+ {
+    document.getElementById('btn').innerHTML=" computer won the game";
+ }
+ else if(userscore===computerscore)
+ {
+    document.getElementById('btn').innerHTML="  The game is drawn";
+ }
+    
+ 
+   
+
+   a.forEach((i)=>{
+     i.addEventListener('click',()=>{
+        userchoice=i.id;
+       
+        game(userchoice);
+   
+       
+     })
+
+   })
+
+</script>
+</html>
